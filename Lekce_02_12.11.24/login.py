@@ -8,16 +8,14 @@ username = input('Zadej username: ')
 password = input('Zadej heslo: ')
 error_text = 'Wrong username or password'
 
-"""
-print(username, password)
-if username in data :
-    if password == data[username] :
-        print('ok')
-    else:
-        print(error_text)
-else: 
-    print(error_text)
-"""
+# print(username, password)
+# if username in data:
+#     if password == data[username]:
+#         print('ok')
+#     else:
+#         print(error_text)
+# else:
+#     print(error_text)
 
 try:
     assert password == data[username]
