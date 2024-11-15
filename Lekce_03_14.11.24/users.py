@@ -58,14 +58,15 @@ def change_password(username, old_password, new_password, password_repeat):
         raise ValueError("New Password and repeated password aren't the same. Or your actual password is wrong")
     write_data(data)
 
-def delete_user(username, password):
+def delete_user(username, password, logged_in):
     data = read_data()
     if username in data and data[username] == password:
         del data[username]
+        del data[logged_in]
         write_data(data)
 
 # register('test', 'heslo', 'heslo', 'logged_in')
 # print(login('test', 'heslo', 'logged_in'))
-print(logout('logged_in'))
-# delete_user('test', 'heslo')
+# print(logout('logged_in'))
+# delete_user('test', 'heslo133', 'logged_in')
 # change_password('test', 'heslo', 'heslo133', 'heslo133')
