@@ -17,23 +17,38 @@ def check_username(data, username):
     if username in data:
         raise ValueError("User already exists")
 
-def register(username, password, password_repeat):
+def logging_in(data, logged_in):
+    if data[logged_in] == 'False':
+        data[logged_in] = 'True'
+        write_data(data)
+        return True
+    else:
+        return 'User is already logged in'
+
+def register(username, password, password_repeat, logged_in):
     check_password(password, password_repeat)
     data = read_data()
     check_username(data, username)
     data[username] = password
+    data[logged_in] = "False"
     write_data(data)
 
-def login(username, password):
+def login(username, password, logged_in):
     data = read_data()
+
     try:
         assert data[username] == password, 'Wrong password'
+        logging_in(data, logged_in)
         return True
     except (KeyError, AssertionError):
         return False
 
-def logout(username):
-    pass
+def logout(logged_in):
+    data = read_data()
+    data[logged_in] = 'False'
+    write_data(data)
+    if data[logged_in] == 'False':
+        return 'Logged out'
 
 def change_password(username, old_password, new_password, password_repeat):
     data = read_data()
@@ -49,7 +64,8 @@ def delete_user(username, password):
         del data[username]
         write_data(data)
 
-# register('test', 'heslo', 'heslo')
-# print(login('test', 'heslo'))
+# register('test', 'heslo', 'heslo', 'logged_in')
+# print(login('test', 'heslo', 'logged_in'))
+print(logout('logged_in'))
 # delete_user('test', 'heslo')
-change_password('test', 'heslo', 'heslo133', 'heslo133')
+# change_password('test', 'heslo', 'heslo133', 'heslo133')
