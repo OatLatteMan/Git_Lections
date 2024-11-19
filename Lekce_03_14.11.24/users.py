@@ -1,5 +1,9 @@
-import json
+import json, hashlib
 DATA_PATH2 = 'Git_Lections/Lekce_03_14.11.24/users.json'
+
+def hash_password(password):
+    hash_value = hashlib.sha256(password.encode())
+    return hash_value.hexdigest()
 
 def read_data():
     with open(DATA_PATH2, encoding='utf-8') as file:
@@ -25,23 +29,39 @@ def logging_in(data, logged_in):
     else:
         return 'User is already logged in'
 
-def register(username, password, password_repeat, logged_in):
+def register(username, password, password_repeat):
     check_password(password, password_repeat)
     data = read_data()
     check_username(data, username)
-    data[username] = password
-    data[logged_in] = "False"
+    data[username] = hash_password(password)
     write_data(data)
 
-def login(username, password, logged_in):
+# def register(username, password, password_repeat, logged_in):
+#     check_password(password, password_repeat)
+#     data = read_data()
+#     check_username(data, username)
+#     data[username] = hash_password(password)
+#     data[logged_in] = "False"
+#     write_data(data)
+
+def login(username, password):
     data = read_data()
 
     try:
-        assert data[username] == password, 'Wrong password'
-        logging_in(data, logged_in)
+        assert data[username] == hash_password(password), 'Wrong password'
         return True
     except (KeyError, AssertionError):
         return False
+    
+# def login(username, password, logged_in):
+#     data = read_data()
+
+#     try:
+#         assert data[username] == password, 'Wrong password'
+#         logging_in(data, logged_in)
+#         return True
+#     except (KeyError, AssertionError):
+#         return False
 
 def logout(logged_in):
     data = read_data()
@@ -65,8 +85,14 @@ def delete_user(username, password, logged_in):
         del data[logged_in]
         write_data(data)
 
-# register('test', 'heslo', 'heslo', 'logged_in')
-# print(login('test', 'heslo', 'logged_in'))
-# print(logout('logged_in'))
-# delete_user('test', 'heslo133', 'logged_in')
-# change_password('test', 'heslo', 'heslo133', 'heslo133')
+def text():
+    register('test', 'heslo', 'heslo', 'logged_in')
+    print(login('test', 'heslo', 'logged_in'))
+    print(logout('logged_in'))
+    delete_user('test', 'heslo133', 'logged_in')
+    change_password('test', 'heslo', 'heslo133', 'heslo133')
+
+def test2():
+    register('test123', 'heslo', 'heslo')
+
+# test2()
