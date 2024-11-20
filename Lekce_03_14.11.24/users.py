@@ -1,5 +1,5 @@
 import json, hashlib
-DATA_PATH2 = 'Git_Lections/Lekce_03_14.11.24/users.json'
+DATA_PATH2 = 'Lekce_03_14.11.24/users.json'
 
 def hash_password(password):
     hash_value = hashlib.sha256(password.encode())
@@ -16,6 +16,7 @@ def write_data(data):
 def check_password(password, password_repeat):
     if password != password_repeat:
         raise ValueError("Passwords aren't the same")
+    return True
 
 def check_username(data, username):
     if username in data:
@@ -70,13 +71,21 @@ def logout(logged_in):
     if data[logged_in] == 'False':
         return 'Logged out'
 
-def change_password(username, old_password, new_password, password_repeat):
+def change_password(username, old_password, password, password_repeat):
     data = read_data()
-    if data[username] == old_password and new_password == password_repeat:
-        data[username] = new_password
+    if data[username] == old_password and check_password(password, password_repeat):
+        data[username] = password
+        write_data(data)
     else:
         raise ValueError("New Password and repeated password aren't the same. Or your actual password is wrong")
-    write_data(data)
+    
+# def change_password(username, old_password, password, password_repeat):
+#     data = read_data()
+#     if data[username] == old_password and password == password_repeat:
+#         data[username] = password
+#         write_data(data)
+#     else:
+#         raise ValueError("New Password and repeated password aren't the same. Or your actual password is wrong")
 
 def delete_user(username, password, logged_in):
     data = read_data()
@@ -96,3 +105,5 @@ def test2():
     register('test123', 'heslo', 'heslo')
 
 # test2()
+
+change_password('test', 'heslo', 'heslo133', 'heslo133')
