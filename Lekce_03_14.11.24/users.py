@@ -53,7 +53,7 @@ def login(username, password):
         return True
     except (KeyError, AssertionError):
         return False
-    
+
 # def login(username, password, logged_in):
 #     data = read_data()
 
@@ -104,6 +104,6 @@ def text():
 def test2():
     register('test123', 'heslo', 'heslo')
 
-# test2()
+test2()
 
-change_password('test', 'heslo', 'heslo133', 'heslo133')
+# change_password('test', 'heslo', 'heslo133', 'heslo133')
