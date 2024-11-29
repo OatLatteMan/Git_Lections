@@ -1,0 +1,15 @@
+1. Integer, string, Boolean, none, float // 4/5
+
+2. list, tuple, dict, set // 
+
+3. if "podminka":
+       "co se stane kdyz podminka splnena"
+   else:
+       "jinak se stane toto"
+
+4. for "promenna" in range("libovolne cislo"):
+       "co se musi delat"
+
+5. def "nazev (korme rezervovanych slov)" ("pripadne parametry"):
+       "co se musi delat"
+       return "neco"
