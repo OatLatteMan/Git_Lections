@@ -9,6 +9,61 @@
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr;
         }
+
+        body {
+            background: #f0bd45;
+        }
+
+        a {
+            padding-top: 5px;
+            text-align: center;
+            align-items: center;
+            position: relative;
+            margin-bottom: 75px;
+            margin-right: 4px;
+            border: 3px solid #2a8b37;
+            border-radius: 20px 0px;
+            height: 340px;
+        }
+
+        h2 {
+            color: black;
+            position: absolute;
+            font-size: 15px;
+            bottom: -10px;
+        }
+
+        h2:hover {
+            color: rgb(132, 93, 132);
+        }
+
+        img {
+            width: 300px;
+            height: 300px;
+        }
+
+        a:hover {
+            animation-name: animace;
+            animation-delay: 0s;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes animace {
+            0% {
+                background: goldenrod;
+            }
+
+            33% {
+                background: #e8c77a;
+            }
+
+            100% {
+                background: goldenrod;
+            }
+        }
+
     </style>
 </head>
 <body>
