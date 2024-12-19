@@ -12,7 +12,17 @@ new_image = new_image.convert('L')
 images_dir = r"C:\Users\15min\Desktop\DimaFront\Lekce Python\Git_Lections\Lekce_12_19.12.24"
 
 for name in os.listdir(images_dir):
-    if name.endswith(('.jpg', '.webp')):
+    if name.endswith(('.jpg', '.webp', 'png')):
         image_path = os.path.join(images_dir, name)
         print(image_path)
-        print(os.path.isfile(image_path))
+        # print(os.path.isfile(image_path))
+
+        image = Image.open(image_path)
+        print(image.size)
+
+        # if image.size[0] < 346:
+        #     os.remove(image_path)
+
+        # print("=======")
+        # print(image_path)
+        # print(image.size)
