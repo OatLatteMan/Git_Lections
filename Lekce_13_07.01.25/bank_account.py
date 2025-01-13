@@ -27,15 +27,12 @@ my_account = BankAccount('Suche Ganbaatar', 1, 100_000)
 
 # -----------------------------------------------------------------
 
-"""
-Address: ulice, cislo, mesto
-"""
 class Address:
     def __init__(self, street, street_number, city):
         self.street = street
         self.street_number = street_number
         self.city = city
-    
+
     def __str__(self):
         return f'{self.street} {self.street_number}, {self.city}'
 
@@ -47,7 +44,7 @@ class Person:
         self.address = address
 
         self.accounts = set() # seznam bank. učtu
-    
+
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
 
@@ -57,12 +54,11 @@ class BankAccount3:
         self.owner = owner
         self.number = number
         self.balance = balance
-        
+
         self.owner.accounts.add(self)
-    
+
     def __str__(self):
         return f'Bank Account {self.number} from {self.owner}'
-        
 
 my_address = Address('Dolní', '176', 'Praha')
 print(my_address)
