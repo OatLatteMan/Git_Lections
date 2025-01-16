@@ -62,22 +62,22 @@ class TaskList():
             print(tasks)
 
 
-task1 = Task('Ukol 1')
-task2 = Task('Ukol 2')
-task3 = SuperTask('Ukol 3', priority=10, due_dt=dt.datetime(2025, 1, 31))
+# task1 = Task('Ukol 1')
+# task2 = Task('Ukol 2')
+# task3 = SuperTask('Ukol 3', priority=10, due_dt=dt.datetime(2025, 1, 31))
 
-task_list = TaskList('Pracovni Ukoly')
+# task_list = TaskList('Pracovni Ukoly')
 
-task_list.add_task(task1)
-task_list.add_task(task2)
-task_list.add_task(task3)
+# task_list.add_task(task1)
+# task_list.add_task(task2)
+# task_list.add_task(task3)
 
-task3.finish()
+# task3.finish()
 
-task_list.show()
-print('---------------------')
-task_list.finish_task_by_id(1)
-task_list.show()
-print('-----------------------')
-task_list.undo_task_by_id(3)
-task_list.show()
+# task_list.show()
+# print('---------------------')
+# task_list.finish_task_by_id(1)
+# task_list.show()
+# print('-----------------------')
+# task_list.undo_task_by_id(3)
+# task_list.show()
