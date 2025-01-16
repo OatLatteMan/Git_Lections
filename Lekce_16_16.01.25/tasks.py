@@ -42,12 +42,20 @@ class TaskList():
     def remove_task(self, task: Task):
         return self.remove_task_by_id(task.id)
 
-    def remove_task_by_id(self, _id: int):
+    def remove_task_by_id(self, task_id: int):
         try:
-            removed_Task = self.tasks.pop(_id)
+            removed_Task = self.tasks.pop(task_id)
             return removed_Task
         except KeyError:
             return None
+
+    def finish_task_by_id(self, task_id: int):
+        task:Task = self.tasks[task_id]
+        task.finish()
+
+    def undo_task_by_id(self, task_id: int):
+        task:Task = self.tasks[task_id]
+        task.undo()
 
     def show(self):
         for tasks in self.tasks.values():
@@ -66,4 +74,10 @@ task_list.add_task(task3)
 
 task3.finish()
 
+task_list.show()
+print('---------------------')
+task_list.finish_task_by_id(1)
+task_list.show()
+print('-----------------------')
+task_list.undo_task_by_id(3)
 task_list.show()
