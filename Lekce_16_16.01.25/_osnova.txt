@@ -1,0 +1,40 @@
+# _osnova.txt
+
+Todo List
+
+
+
+
+File Stats
+
+
+
+
+-----------------------------------
+
+a) jake objekty tam budou
+
+TaskList
+ - name: str
+ - tasks: dict[int: Task(obj)]
+
+
+Task
+ - id: int
+ - name: str
+ - status: bool
+ - priority: int
+ - created_dt: datetime.now()
+ - [due_dt]: datetime
+
+
+b) jake cinnosti tam budou
+
+Task List
+ - add_task(task: Task)
+ - remove_task(task: Task)
+
+
+Task
+ - change_status()
+
