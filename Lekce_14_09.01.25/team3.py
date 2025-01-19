@@ -8,10 +8,10 @@ class Team:
         self.name = name
         self.company = company
         self.members = set()
-    
+
     def __str__(self):
         return self.name
-    
+
     def add_member(self, human: 'Human'):
         if human.team and human.team != self:
             raise ValueError(f'This member is already in another team: {human}')
@@ -22,7 +22,7 @@ class Team:
     def remove_member(self, human: 'Human'):
         if human in self.members:
             self.members.remove(human)
-        
+
         if human.team is self:
             human.team = None
 
