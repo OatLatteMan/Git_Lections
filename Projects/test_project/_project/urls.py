@@ -16,9 +16,24 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from myapp.views import index_page
+from myapp import views
 
 urlpatterns = [
-    path('', index_page),
+    path('', views.index_page),
+
+    # http://127.0.0.1:[PORT]/url-paths/
+    path('url-paths/', views.url_paths),
+
+    # http://127.0.0.1:[PORT]/admin/
     path('admin/', admin.site.urls),
+
+    # http://127.0.0.1:[PORT]/my-math/
+    path('my-math/', views.my_math),
+
+    # http://127.0.0.1:[PORT]/test-template/
+    path('test-template/', views.test_template),
+
+    # http://127.0.0.1:[PORT]/calculator/
+    path('calculator/', views.calculator)
+
 ]

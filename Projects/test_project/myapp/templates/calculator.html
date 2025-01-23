@@ -1,0 +1,22 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <title>Hello!</title>
+  </head>
+  <body>
+    <main class="container">
+        <h1>Calculator</h1>
+
+    <form action="/calculator/" method="get">
+        <input name="a" required type="number" value="{{ request.GET.a }}">
+        <input name="b" required type="number" value="{{ request.GET.b }}">
+        <input readonly value="{{ result }}">
+        <button>Calculate</button>
+        <button><a href="/calculator" style="text-decoration: none; color: white">Refresh</a></button>
+    </form>
+    </main>
+  </body>
+</html>
