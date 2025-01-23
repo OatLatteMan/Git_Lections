@@ -13,9 +13,28 @@
     <form action="/calculator/" method="get">
         <input name="a" required type="number" value="{{ request.GET.a }}">
         <input name="b" required type="number" value="{{ request.GET.b }}">
-        <input readonly value="{{ result }}">
-        <button>Calculate</button>
+        <input readonly value="{{ result_plus }}">
+        <button>Calculate sum</button>
         <button><a href="/calculator" style="text-decoration: none; color: white">Refresh</a></button>
+        <br><br><br>
+        <input name="a" required type="number" value="{{ request.GET.a }}">
+        <input name="b" required type="number" value="{{ request.GET.b }}">
+        <input readonly value="{{ result_substracting }}">
+        <button>Calculate substracting</button>
+        <button><a href="/calculator" style="text-decoration: none; color: white">Refresh</a></button>
+        <br><br><br>
+        <input name="a" required type="number" value="{{ request.GET.a }}">
+        <input name="b" required type="number" value="{{ request.GET.b }}">
+        <input readonly value="{{ result_multiplying }}">
+        <button>Calculate multiplying</button>
+        <button><a href="/calculator" style="text-decoration: none; color: white">Refresh</a></button>
+        <br><br><br>
+        <input name="a" required type="number" value="{{ request.GET.a }}">
+        <input name="b" required type="number" value="{{ request.GET.b }}">
+        <input readonly value="{{ result_dividing }}">
+        <button>Calculate dividing</button>
+        <button><a href="/calculator" style="text-decoration: none; color: white">Refresh</a></button>
+        <br><br><br>
     </form>
     </main>
   </body>

@@ -72,12 +72,21 @@ def calculator(request):
     try:
         a = int(request.GET['a'])
         b = int(request.GET['b'])
-        result = a + b
+        result_plus = a + b
+        result_substracting = a - b
+        result_multiplying = a * b
+        result_dividing = a / b
     except (KeyError, TypeError, ValueError):
-        result = ''
+        result_plus = ''
+        result_substracting = ''
+        result_multiplying = ''
+        result_dividing = ''
 
     context = {
-        'result': result
+        'result_plus': result_plus,
+        'result_substracting': result_substracting,
+        'result_multiplying': result_multiplying,
+        'result_dividing': result_dividing,
     }
 
     return render(request, 'calculator.html', context)
