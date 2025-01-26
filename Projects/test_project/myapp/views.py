@@ -91,3 +91,19 @@ def calculator(request):
 
     return render(request, 'calculator.html', context)
 
+# def _time(request):
+#     date = dt.datetime.now().strftime("%d.%m.%Y")
+#     time = dt.datetime.now().strftime("%H:%M:%S")
+#     return HttpResponse(date + "<br><br>" + time)
+
+def _time(request):
+    date = dt.datetime.now().strftime("%d.%m.%Y")
+    time = dt.datetime.now().strftime("%H:%M:%S")
+
+    context = {
+        'date': date,
+        'time': time,
+    }
+
+    return render(request, 'time.html', context)
+

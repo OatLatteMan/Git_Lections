@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time. Homework 17</title>
+    <link rel="stylesheet" href="./time.css">
+    <style>
+        /* Why internal styles are allowed, but
+           external ones are disallowed???
+        */
+        body {
+            justify-items: center;
+        }
+
+        .block {
+            border: 12px solid transparent;
+            border-radius: 24px;
+            background: 
+                linear-gradient(#f5d5f2, #f5d5f2) padding-box,
+                linear-gradient(45deg, #ff52ee, #f6d242) border-box;
+            justify-items: center;
+            justify-content: center;
+            width: 85%;
+            height: 250px;
+            margin-top: 110px;
+        }
+
+        p {
+            font-weight: 700;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        }
+        
+        .date {
+            font-size: 24px;
+        }
+
+        .time {
+            font-size: 48px;
+        }
+    </style>
+</head>
+<body>
+    <div class="block">
+            <p class="date">{{ date }}</p>
+            <p class="time">{{ time }}</p>
+    </div>
+</body>
+</html>
