@@ -91,6 +91,22 @@ def calculator(request):
 
     return render(request, 'calculator.html', context)
 
+def age(request):
+    try:
+        a = int(request.GET['a'])
+        actual_age = 2025 - a
+
+    except (KeyError, TypeError, ValueError):
+        a = None
+        actual_age = '"Not defined yet"'
+
+    context = {
+        'a': a,
+        'actual_age': actual_age,
+    }
+
+    return render(request, 'age.html', context)
+
 # def _time(request):
 #     date = dt.datetime.now().strftime("%d.%m.%Y")
 #     time = dt.datetime.now().strftime("%H:%M:%S")

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age define</title>
+    <meta name="color-scheme" content="light dark">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+</head>
+<body>
+    <main class="container">
+        <h1>Put your age</h1>
+        <form action="/age/" method="get">
+            <input name="a" type="number" value="{{ a }}">
+            <input name="b" readonly value="Your age is approximately {{ actual_age }}">
+            <button>Get your age</button>
+            <button><a href="/age" style="text-decoration: none; color: white">Refresh</a></button>
+        </form>
+    </main>
+</body>
+</html>

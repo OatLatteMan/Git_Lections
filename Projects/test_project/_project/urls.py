@@ -37,6 +37,9 @@ urlpatterns = [
     path('calculator/', views.calculator),
 
     # http://127.0.0.1:[PORT]/time/
-    path('time/', views._time)
+    path('time/', views._time),
+
+    # http://127.0.0.1:[PORT]/age/
+    path('age/', views.age),
 
 ]
