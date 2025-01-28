@@ -46,6 +46,9 @@ urlpatterns = [
     path('age/', views.age),
 
     # http://127.0.0.1:[PORT]/admin/
-    path('login/', views.login)
+    path('login/', views.login),
+
+    # http://127.0.0.1:[PORT]/signup/
+    path('signup/', views.signup)
 
 ]

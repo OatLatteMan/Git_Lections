@@ -147,3 +147,16 @@ def my_page(request, name):
 
     return render(request, 'my_page.html', {'name': name})
 
+def signup(request):
+    password = request.POST.get('pass')
+    password_repeat = request.POST.get('pass_rep')
+
+    if password:
+        if password != password_repeat:
+            return render(request, 'signup_failed.html')
+        elif password == password_repeat:
+            return render(request, 'signup_success.html')
+
+
+    return render(request, 'signup.html')
+
