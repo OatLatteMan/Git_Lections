@@ -39,6 +39,9 @@ urlpatterns = [
     # http://127.0.0.1:[PORT]/time/
     path('time/', views._time),
 
+    # http://127.0.0.1:[PORT]/jmeno/[any string]/
+    path('jmeno/<str:name>/', views.my_page),
+
     # http://127.0.0.1:[PORT]/age/
     path('age/', views.age),
 

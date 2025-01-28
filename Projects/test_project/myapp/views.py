@@ -131,8 +131,19 @@ def login(request):
     username = request.POST.get('username', '')
     password = request.POST.get('password', '')
 
-    print(request.POST)
     print(username, password)
+    print(request.FILES, '<<<<<< FILES')
+
+    if username == '15minstan@gmail.com':
+        return render(request, 'login_success.html')
+
+    # print(request._body)
+    # print(request.POST)
 
     return render(request, 'login.html')
+
+def my_page(request, name):
+
+
+    return render(request, 'my_page.html', {'name': name})
 
