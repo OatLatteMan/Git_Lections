@@ -69,24 +69,28 @@ def test_template(request):
     return render(request, 'test_template.html', context)
 
 def calculator(request):
+
     try:
+        operation = request.GET['operation']
         a = int(request.GET['a'])
         b = int(request.GET['b'])
-        result_plus = a + b
-        result_substracting = a - b
-        result_multiplying = a * b
-        result_dividing = a / b
+
+        if operation == 'plus':
+            result = a + b
+        elif operation == 'minus':
+            result = a - b
+        elif operation == 'multiple':
+            result = a * b
+        elif operation == 'divide':
+            result = a / b
+
     except (KeyError, TypeError, ValueError):
-        result_plus = ''
-        result_substracting = ''
-        result_multiplying = ''
-        result_dividing = ''
+        result = ''
+    except ZeroDivisionError:
+        result = ''
 
     context = {
-        'result_plus': result_plus,
-        'result_substracting': result_substracting,
-        'result_multiplying': result_multiplying,
-        'result_dividing': result_dividing,
+        'result': result
     }
 
     return render(request, 'calculator.html', context)
@@ -122,4 +126,13 @@ def _time(request):
     }
 
     return render(request, 'time.html', context)
+
+def login(request):
+    username = request.POST.get('username', '')
+    password = request.POST.get('password', '')
+
+    print(request.POST)
+    print(username, password)
+
+    return render(request, 'login.html')
 

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <title>Login</title>
+</head>
+<body style="max-width: 640px; margin: 0 auto;">
+    <main class="container">
+        <h1>login</h1>
+
+        <form method="post" action="/login/">
+            {% csrf_token %}
+            <input name="username" required placeholder="login" type="email">
+            <input name="password" required placeholder="password" type="password">
+            <button type="submit">Login</button>
+        </form>
+    </main>
+</body>
+</html>

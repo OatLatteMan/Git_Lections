@@ -42,4 +42,7 @@ urlpatterns = [
     # http://127.0.0.1:[PORT]/age/
     path('age/', views.age),
 
+    # http://127.0.0.1:[PORT]/admin/
+    path('login/', views.login)
+
 ]
