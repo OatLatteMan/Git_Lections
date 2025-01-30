@@ -15,40 +15,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from myapp import views
+from django.urls import path, include
 
 urlpatterns = [
-    path('', views.index_page),
-
-    # http://127.0.0.1:[PORT]/url-paths/
-    path('url-paths/', views.url_paths),
+    path('test/', include('myapp.urls')),
 
     # http://127.0.0.1:[PORT]/admin/
     path('admin/', admin.site.urls),
-
-    # http://127.0.0.1:[PORT]/my-math/
-    path('my-math/', views.my_math),
-
-    # http://127.0.0.1:[PORT]/test-template/
-    path('test-template/', views.test_template),
-
-    # http://127.0.0.1:[PORT]/calculator/
-    path('calculator/', views.calculator),
-
-    # http://127.0.0.1:[PORT]/time/
-    path('time/', views._time),
-
-    # http://127.0.0.1:[PORT]/jmeno/[any string]/
-    path('jmeno/<str:name>/', views.my_page),
-
-    # http://127.0.0.1:[PORT]/age/
-    path('age/', views.age),
-
-    # http://127.0.0.1:[PORT]/admin/
-    path('login/', views.login),
-
-    # http://127.0.0.1:[PORT]/signup/
-    path('signup/', views.signup)
-
 ]
+
+"""
+We can turn text into slug by importing package and using function:
+    from django.utils.text import slugify
+    title = 'Nejlepsi restaurace v Praze'
+    print(slugify(title)) ---> Nejlepsi-restaurace-v-Praze
+"""
+

@@ -160,3 +160,20 @@ def signup(request):
 
     return render(request, 'signup.html')
 
+def article(request, name, number):
+
+
+    return HttpResponse(
+        f"""
+        <h1>{name} - {number}</h1>
+        """
+    )
+
+def pages(request, number, name):
+
+    return HttpResponse(
+        f"""
+        <h1>Number is: {number}, name is: {name}</h1>
+        """
+    )
+
