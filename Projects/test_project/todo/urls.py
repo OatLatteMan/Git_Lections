@@ -1,14 +1,14 @@
 from django.urls import path
 from todo import views
 
+app_name = 'todo'
+
 """
 /todo/
 /todo/list/
 /todo/new/
 /todo/7627/
 """
-
-app_name = 'todo'
 
 urlpatterns = [
     # http://127.0.0.1:[PORT]/todo
