@@ -1,3 +1,26 @@
+from django.urls import path
+from todo import views
+
+"""
+/todo/
+/todo/list/
+/todo/new/
+/todo/7627/
+"""
+
+app_name = 'todo'
+
 urlpatterns = [
-    
+    # http://127.0.0.1:[PORT]/todo
+    path('', views.index, name='index'),
+
+    # http://127.0.0.1:[PORT]/todo/list
+    path('list/', views.todo_list, name='list'),
+
+    # http://127.0.0.1:[PORT]/todo/new
+    path('new/', views.todo_new, name='new'),
+
+    # http://127.0.0.1:[PORT]/todo/detail
+    path('<int:number>/', views.todo_detail, name='detail'),
+
 ]

@@ -66,7 +66,7 @@ def test_template(request):
         'age': age
         }
 
-    return render(request, 'test_template.html', context)
+    return render(request, 'myapp/test_template.html', context)
 
 def calculator(request):
 
@@ -93,7 +93,7 @@ def calculator(request):
         'result': result
     }
 
-    return render(request, 'calculator.html', context)
+    return render(request, 'myapp/calculator.html', context)
 
 def age(request):
     try:
@@ -109,7 +109,7 @@ def age(request):
         'actual_age': actual_age,
     }
 
-    return render(request, 'age.html', context)
+    return render(request, 'myapp/age.html', context)
 
 # def _time(request):
 #     date = dt.datetime.now().strftime("%d.%m.%Y")
@@ -125,7 +125,7 @@ def _time(request):
         'time': time,
     }
 
-    return render(request, 'time.html', context)
+    return render(request, 'myapp/time.html', context)
 
 def login(request):
     username = request.POST.get('username', '')
@@ -140,12 +140,12 @@ def login(request):
     # print(request._body)
     # print(request.POST)
 
-    return render(request, 'login.html')
+    return render(request, 'myapp/login.html')
 
 def my_page(request, name):
 
 
-    return render(request, 'my_page.html', {'name': name})
+    return render(request, 'myapp/my_page.html', {'name': name})
 
 def signup(request):
     password = request.POST.get('pass')
@@ -153,12 +153,12 @@ def signup(request):
 
     if password:
         if password != password_repeat:
-            return render(request, 'signup_failed.html')
+            return render(request, 'myapp/signup_failed.html')
         elif password == password_repeat:
-            return render(request, 'signup_success.html')
+            return render(request, 'myapp/signup_success.html')
 
 
-    return render(request, 'signup.html')
+    return render(request, 'myapp/signup.html')
 
 def article(request, name, number):
 

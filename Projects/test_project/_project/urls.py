@@ -18,7 +18,9 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('test/', include('myapp.urls')),
+    path('test/', include('myapp.urls', namespace='myapp')),
+
+    path('todo/', include('todo.urls', namespace='todo')),
 
     # http://127.0.0.1:[PORT]/admin/
     path('admin/', admin.site.urls),
