@@ -1,11 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-
 def index(request, number):
     context = {
         'number': number,
     }
 
-
-    return render(request, '/final_project/index.html', context)
+    return render(request, 'final_project/index.html', context)
