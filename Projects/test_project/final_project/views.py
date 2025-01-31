@@ -6,4 +6,4 @@ def index(request, number):
         'number': number,
     }
 
-    return render(request, 'final_project/index.html', context)
+    return render(request, 'final_project/tpcfuj.html', context)
