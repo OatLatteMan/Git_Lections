@@ -1,6 +1,8 @@
 from django.urls import path
 from polls import views
 
+app_name = 'polls'
+
 urlpatterns = [
     # http://127.0.0.1:2091/polls/tester
     path('indexes/', views.indexes, name='indexes'),
