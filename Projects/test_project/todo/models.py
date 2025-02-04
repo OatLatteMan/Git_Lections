@@ -8,3 +8,6 @@ class Task(models.Model):
     create_dt = models.DateTimeField(auto_now_add=True)
     update_dt = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return self.title
+
