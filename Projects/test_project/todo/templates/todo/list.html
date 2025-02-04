@@ -8,24 +8,7 @@
   </head>
   <body>
 
-    <section class="section">
-        <div class="container">
-          <nav class="navbar" role="navigation" aria-label="main navigation">
-            <div class="navbar-brand">
-                <a class="navbar-item" href="/todo">Home</a>
-                <a class="navbar-item" href="/todo/list">List</a>
-                <a class="navbar-item" href="/todo/new">New</a>
-
-                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                </a>
-            </div>
-        </nav>
-        </div>
-      </section>
+    {% include 'todo/includes/nav.html' %}
 
     <div class="container">
       <h1 class="title">Todo List</h1>

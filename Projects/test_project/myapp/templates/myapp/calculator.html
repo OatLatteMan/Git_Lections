@@ -10,7 +10,7 @@
     <main class="container">
         <h1>Calculator</h1>
 
-    <form action="/calculator/" method="get">
+    <form action="/myapp/calculator/" method="get">
       <select name="operation">
         <option value="plus">+</option>
         <option value="minus">-</option>
@@ -22,7 +22,7 @@
         <label for="result">{{ request.GET.a }} {{ request.GET.operation }} {{ request.GET.b }} </label>
         <input id="result" readonly value="{{ result }}">
         <button>Calculate</button>
-        <button><a href="/calculator" style="text-decoration: none; color: white">Refresh</a></button>
+        <button><a href="/myapp/calculator/" style="text-decoration: none; color: white">Refresh</a></button>
         <br><br><br>
     </form>
     </main>
