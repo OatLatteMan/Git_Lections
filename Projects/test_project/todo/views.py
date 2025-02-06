@@ -12,7 +12,7 @@ def index(request):
     return render(request, 'todo/index.html')
 
 def todo_list(request):
-    tasks = Task.objects.all()[0:100]
+    tasks = Task.objects.all().order_by('-id')[0:100]
 
     context = {
         'tasks': tasks
@@ -32,6 +32,9 @@ def todo_new(request):
             task = form.save()
             print(task, task.id)
             return redirect('/todo/list.html')
+        else:
+            form = TaskForm(request.POST)
+            return render(request, 'todo/new.html', context)
     else:
         form = TaskForm()
         return render(request, 'todo/new.html', context)
