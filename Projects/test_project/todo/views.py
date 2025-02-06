@@ -31,7 +31,7 @@ def todo_new(request):
         if form.is_valid():
             task = form.save()
             print(task, task.id)
-            return redirect('/todo/list.html')
+            return redirect('/todo/list')
         else:
             form = TaskForm(request.POST)
             return render(request, 'todo/new.html', context)
