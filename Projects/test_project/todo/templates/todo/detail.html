@@ -4,10 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
 </head>
 <body>
-    <main class="container">
-        <h1>Hi, {{ number }}</h1>
-    </main>
-</body>
+
+    {% include 'todo/includes/nav.html' %}
+
+    <section class='section'>
+        <div class="container">
+            <h1 class="title">Hi, {{ task.title }}</h1>
+            <p class="subtitle">{{ task.desc }}</p>
+            <p class="subtitle">{{ task.id }}</p>
+            <p class="subtitle">Last Updated: {{ task.update_dt }}</p>
+        </div>
+    </section>
+  </body>
 </html>

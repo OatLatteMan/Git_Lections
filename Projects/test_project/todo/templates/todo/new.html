@@ -15,6 +15,13 @@
   <section class="section">
     <div class="container">
       <h1 class="title">Create a new Item</h1>
+      <form method="POST", action="{% url 'todo:new' %}">
+        {% csrf_token %}
+        {{ form }}
+        <button class="button is-dark" type="submit">Save</button>
+      </form>
+      <br><br>
+
       <form style="max-width: 660px;">
         <div class="field">
           <label class="label">Name</label>
