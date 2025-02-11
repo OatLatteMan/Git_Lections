@@ -13,6 +13,7 @@
   {% include 'todo/includes/nav.html' %}
 
   <section class="section">
+    {% comment %}
     <div class="container">
       <h1 class="title">Create a new Item</h1>
       <form method="POST", action="{% url 'todo:new' %}">
@@ -21,19 +22,21 @@
         <button class="button is-dark" type="submit">Save</button>
       </form>
       <br><br>
+    {% endcomment %}
 
-      <form style="max-width: 660px;">
+      <form method="POST", action="{% url 'todo:new' %}", style="max-width: 660px;">
+        {% csrf_token %}
         <div class="field">
-          <label class="label">Name</label>
+          <label class="label">{{ form.title.label }}</label>
           <div class="control">
-            <input class="input" type="text" placeholder="Text input">
+            <input name="{{ form.title.name }}" class="input" type="text" placeholder="Text input">
           </div>
         </div>
 
         <div class="field">
-          <label class="label">Message</label>
+          <label class="label">{{ form.desc.label }}</label>
           <div class="control">
-            <textarea class="textarea" placeholder="Textarea"></textarea>
+            <textarea name="{{ form.desc.name }}" class="textarea" placeholder="Textarea"></textarea>
           </div>
         </div>
 
