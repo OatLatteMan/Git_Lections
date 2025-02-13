@@ -23,4 +23,6 @@ urlpatterns = [
     # http://127.0.0.1:[PORT]/todo/detail
     path('<int:number>/', views.todo_detail, name='detail'),
 
+    
+
 ]
