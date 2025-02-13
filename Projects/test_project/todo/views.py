@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from todo.models import Task
 from django.forms import ModelForm
@@ -17,13 +17,22 @@ def index(request):
     return render(request, 'todo/index.html')
 
 def todo_list(request):
-    tasks = Task.objects.all().order_by('-id')[0:100]
+    if request.user.is_authenticated:
+        tasks = Task.objects.filter(user=request.user).order_by('-id')[0:100]
+        context = {'tasks': tasks}
 
-    context = {
-        'tasks': tasks
-    }
+        return render(request, 'todo/list.html', context)
+    else:
+        return redirect('/todo')
 
-    return render(request, 'todo/list.html', context)
+def todo_detail(request, number):
+    if request.user.is_authenticated:
+        task = get_object_or_404(Task, id=number)
+        context = {'task': task,}
+        if task.user == request.user:
+            return render(request, 'todo/detail.html', context)
+    else:
+        return redirect('/todo')
 
 def todo_new(request):
     if request.method == 'POST':
@@ -38,15 +47,4 @@ def todo_new(request):
     else:
         form = TaskForm()
         return render(request, 'todo/new.html', {'form': form})
-
-
-def todo_detail(request, number):
-    task = Task.objects.get(id=number)
-
-    context = {
-        'task': task,
-        'number': number,
-    }
-
-    return render(request, 'todo/detail.html', context)
 
