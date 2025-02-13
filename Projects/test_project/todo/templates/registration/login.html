@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Hello Bulma!</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    </head>
+    <body>
+        <section class="container">
+            <h1>Login template!</h1>
+
+            <form method="post" action="{% url 'login' %}" style="max-width: 640px;">
+                {% csrf_token %}
+                {% comment %}
+                {{ form }}
+                 {% endcomment %}
+
+                <div class="field">
+                    <label class="label">{{ form.username.label }}</label>
+                    <div class="control">
+                      <input name="{{ form.username.name }}" value="" class="input" type="text" placeholder="">
+                    </div>
+                    {% if form.username.title %}
+                    <p class="help is-danger">{{ form.username.title }}</p>
+                    {% endif %}
+                  </div>
+                  <div class="field">
+                    <label class="label">{{ form.password.label }}</label>
+                    <div class="control">
+                      <input name="{{ form.password.name }}" value="" class="input" type="password" placeholder="">
+                    </div>
+                    {% if form.password.title %}
+                    <p class="help is-danger">{{ form.password.title }}</p>
+                    {% endif %}
+                  </div>
+
+                <button class="button is-warning" type="submit">Login</button>
+            </form>
+        </section>
+</body>
+</html>

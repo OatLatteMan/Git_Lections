@@ -24,6 +24,8 @@ urlpatterns = [
 
     path('todo/', include('todo.urls', namespace='todo')),
 
+    path("accounts/", include("django.contrib.auth.urls")),
+
     # http://127.0.0.1:[PORT]/admin/
     path('admin/', admin.site.urls),
 ]
