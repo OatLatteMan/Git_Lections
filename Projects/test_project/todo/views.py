@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from todo.models import Task
 from django.forms import ModelForm
 from django import forms
+from django.contrib.auth.models import User
 
 class TaskForm(ModelForm):
     class Meta:
@@ -20,6 +21,10 @@ def todo_list(request):
     if request.user.is_authenticated:
         tasks = Task.objects.filter(user=request.user).order_by('-id')[0:100]
         context = {'tasks': tasks}
+
+        # user18 = User.objects.create_user('18min', None, '18minstan18')
+        # user18.is_staff = True
+        # user18.save()
 
         return render(request, 'todo/list.html', context)
     else:
