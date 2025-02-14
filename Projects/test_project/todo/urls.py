@@ -20,9 +20,12 @@ urlpatterns = [
     # http://127.0.0.1:[PORT]/todo/new
     path('new/', views.todo_new, name='new'),
 
+    # http://127.0.0.1:[PORT]/todo/register
+    # path('register/', views.register, name='register'),
+
     # http://127.0.0.1:[PORT]/todo/detail
     path('<int:number>/', views.todo_detail, name='detail'),
 
-    
+
 
 ]

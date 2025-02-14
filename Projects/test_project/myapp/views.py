@@ -128,8 +128,8 @@ def _time(request):
     return render(request, 'myapp/time.html', context)
 
 def login(request):
-    username = request.POST.get('username', '')
-    password = request.POST.get('password', '')
+    username = request.POST.get('username12', '')
+    password = request.POST.get('password12', '')
 
     print(username, password)
     print(request.FILES, '<<<<<< FILES')
