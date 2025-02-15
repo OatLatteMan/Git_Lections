@@ -135,7 +135,7 @@ def login(request):
     print(request.FILES, '<<<<<< FILES')
 
     if username == '15minstan@gmail.com':
-        return render(request, 'login_success.html')
+        return render(request, 'myapp/login_success.html')
 
     # print(request._body)
     # print(request.POST)

@@ -30,15 +30,16 @@ def todo_list(request):
     else:
         return redirect('/todo')
 
-# def register(request):
-#     username = request.POST.get('username', '')
-#     password = request.POST.get('password', '')
-#     email = request.POST.get('email', '')
-#     user = User.objects.create_user(username, email, password)
-#     user.is_staff = True
-#     user.save()
+def register(request):
+    username = request.POST.get('username', '')
+    password = request.POST.get('password', '')
+    email = request.POST.get('email', '')
+    # user = User.objects.create_user(username, None, password)
+    user = User.objects.create_user('18min', None, '18minstan18')
+    user.is_staff = True
+    user.save()
 
-#     return render(request, 'todo/registration.html')
+    return render(request, 'todo/registration.html')
 
 def todo_detail(request, number):
     if request.user.is_authenticated:
