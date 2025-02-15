@@ -22,10 +22,6 @@ def todo_list(request):
         tasks = Task.objects.filter(user=request.user).order_by('-id')[0:100]
         context = {'tasks': tasks}
 
-        # user18 = User.objects.create_user('18min', None, '18minstan18')
-        # user18.is_staff = True
-        # user18.save()
-
         return render(request, 'todo/list.html', context)
     else:
         return redirect('/todo')
