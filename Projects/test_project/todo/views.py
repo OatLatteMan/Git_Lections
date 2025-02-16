@@ -27,11 +27,11 @@ def todo_list(request):
         return redirect('/todo')
 
 def register(request):
-    username12 = request.POST.get('username', '')
-    password12 = request.POST.get('password', '')
+    username = request.POST.get('username', '')
+    password = request.POST.get('password', '')
     print(request.POST, "<<<<<<<<<<<<<")
     # email = request.POST.get('email97', '')
-    user = User.objects.create_user(username=username12, password=password12)
+    user = User.objects.create_user(username=username, password=password)
     # user = User.objects.create_user('18min', None, '1234')
     user.is_staff = True
     user.save()
