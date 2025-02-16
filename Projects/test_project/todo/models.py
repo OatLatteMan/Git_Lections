@@ -19,7 +19,7 @@ class Task(models.Model):
         return self.title
 
 class Register(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     login = models.CharField(max_length=32)
     password = models.CharField(max_length=64)
