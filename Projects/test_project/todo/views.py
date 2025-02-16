@@ -68,6 +68,13 @@ def register(request):
             return redirect('/todo/list')
         else:
             form = RegisterForm(request.POST)
+
+            login = request.POST.get('login', '')
+            password = request.POST.get('password', '')
+            user = User.objects.create_user(username=login, password=password)
+            user.is_staff = True
+            user.save()
+
             return render(request, 'todo/registration.html', {'form': form})
     else:
         form = RegisterForm()
