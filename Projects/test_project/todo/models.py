@@ -18,3 +18,13 @@ class Task(models.Model):
     def __str__(self):
         return self.title
 
+class Register(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    login = models.CharField(max_length=32)
+    password = models.CharField(max_length=64)
+    email = models.CharField(max_length=96)
+
+    def __str__(self):
+        return self.email
+

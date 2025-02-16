@@ -16,7 +16,7 @@
                 <div class="field">
                     <label class="label">New Login</label>
                     <div class="control">
-                      <input name="login" value="" class="input" type="text" placeholder="Your new login">
+                      <input name="login" value="" class="login" type="text" placeholder="Your new login">
                     </div>
                     {% if form.username.title %}
                     <p class="help is-danger">{{ form.username.title }}</p>
@@ -24,22 +24,22 @@
                   </div>
 
                   <div class="field">
-                    <label class="label">New Email</label>
+                    <label class="label">New Password</label>
                     <div class="control">
-                      <input name="email" value="" class="input" type="email" placeholder="Your new email">
+                      <input name="password" value="" class="password" type="password" placeholder="Your new password">
                     </div>
-                    {% if form.email.title %}
-                    <p class="help is-danger">{{ form.email.title }}</p>
+                    {% if form.password.title %}
+                    <p class="help is-danger">{{ form.password.title }}</p>
                     {% endif %}
                   </div>
 
                   <div class="field">
-                    <label class="label">New Password</label>
+                    <label class="label">New Email</label>
                     <div class="control">
-                      <input name="password" value="" class="input" type="password" placeholder="Your new password">
+                      <input name="email" value="" class="email" type="email" placeholder="Your new email">
                     </div>
-                    {% if form.password.title %}
-                    <p class="help is-danger">{{ form.password.title }}</p>
+                    {% if form.email.title %}
+                    <p class="help is-danger">{{ form.email.title }}</p>
                     {% endif %}
                   </div>
 
