@@ -59,25 +59,26 @@ def todo_new(request):
         form = TaskForm()
         return render(request, 'todo/new.html', {'form': form})
 
+# login = request.POST.get('login', '')
+# password = request.POST.get('password', '')
+# user = User.objects.create_user(username=login, password=password)
+# user.is_staff = True
+# user.save()
+
 def register(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
             reg = form.save()
-            print(reg)
+            print(reg, '1111111111')
             return redirect('/todo/list')
         else:
             form = RegisterForm(request.POST)
-
-            login = request.POST.get('login', '')
-            password = request.POST.get('password', '')
-            user = User.objects.create_user(username=login, password=password)
-            user.is_staff = True
-            user.save()
-
+            print('2222222222')
             return render(request, 'todo/registration.html', {'form': form})
     else:
         form = RegisterForm()
+        print('3333333333')
         return render(request, 'todo/registration.html', {'form': form})
 
 # def register(request):
