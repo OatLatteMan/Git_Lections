@@ -60,8 +60,35 @@ def todo_new(request):
     else:
         return redirect('/todo')
 
-def todo_task_delete(request):
-    pass
+def todo_task_delete(request, number):
+    """
+    1) Find the task
+      - by number "id = number"
+      - user must be authenticated
+      - task must belong to specified user
+    2) Delete the task by id
+    3) Show the list
+    """
+    if request.method == 'POST':
+        if request.user.is_authenticated:
+            task = get_object_or_404(Task, id=number, user=request.user)
+            task.delete()
+            return redirect('/todo/list/')
+
+    return redirect('/todo/')
+
+def todo_task_finish(request, number):
+    if request.user.is_authenticated:
+        task = get_object_or_404(Task, id=number, user=request.user)
+        if task.is_finished == False:
+            task.is_finished = True
+            task.save()
+        else:
+            task.is_finished = False
+            task.save()
+        return redirect('/todo/list/')
+
+    return redirect('/todo/')
 
 def register(request):
     if request.method == 'POST':

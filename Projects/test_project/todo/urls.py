@@ -27,6 +27,9 @@ urlpatterns = [
     path('<int:number>/', views.todo_detail, name='detail'),
 
     # http://127.0.0.1:[PORT]/todo/detail/delete
-    path('<int:number>/delete/', views.todo_task_delete, name='task_delete')
+    path('<int:number>/delete/', views.todo_task_delete, name='task_delete'),
+
+    # http://127.0.0.1:[PORT]/todo/detail/finish
+    path('<int:number>/finish/', views.todo_task_finish, name='task_finish'),
 
 ]

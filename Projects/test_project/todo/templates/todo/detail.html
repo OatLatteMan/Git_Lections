@@ -27,13 +27,21 @@
           <button type="submit" class="button is-warning">Save</button>
           <a href="{% url 'todo:list' %}" class="button is-warning is-light">Cancel</a>
           <span style="flex-grow:1;"></span>
-          <a href="{% url 'todo:list' %}" class="button is-danger is-light">Delete</a>
-          {% if task.is_finished %}
-          <a href="#" class="button is-primary">Un-Finish</a>
-          {% else %}
-          <a href="#" class="button is-primary">Finish</a>
-          {% endif %}
       </div>
+    </form>
+    <br>
+    <form action="{% url 'todo:task_delete' number=task.id %}" method="POST">
+        {% csrf_token %}
+        <button type="submit" class="button is-danger">DELETE</button>
+    </form>
+    <br>
+    <form action="{% url 'todo:task_finish' number=task.id %}" method="POST">
+        {% csrf_token %}
+        {% if task.is_finished %}
+        <button type="submit" class="button is-primary is-light">Un-finish</button>
+        {% else %}
+        <button type="submit" class="button is-primary">Finish</button>
+        {% endif %}
     </form>
   </section>
 
