@@ -26,5 +26,5 @@ class Register(models.Model):
     email = models.CharField(max_length=96)
 
     def __str__(self):
-        return self.email
+        return self.login
 

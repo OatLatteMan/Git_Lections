@@ -1,57 +1,30 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+  </head>
+  <body>
+    {% include 'todo/includes/nav.html' %}
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Bulma!</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
-</head>
+<section class="section container" style="max-width: 640px;">
+  <h1 class="title">Create a new Item</h1>
+  
+  <form method="POST" action="{% url 'todo:new' %}">
+    {% csrf_token %}
 
-<body>
+    {% load crispy_forms_tags %}
+    {{ form|crispy }}
 
-  {% include 'todo/includes/nav.html' %}
+    <div class="buttons">
+        <button type="submit" class="button is-warning">Save</button>
+        <a href="{% url 'todo:list' %}" class="button is-warning is-light">Cancel</a>
 
-  <section class="section">
-    <div class="container">
-      <h1 class="title">Create a new Item</h1>
-
-      {% comment %} <form method="POST", action="{% url 'todo:new' %}">
-        {% csrf_token %}
-        {{ form }}
-        <button class="button is-dark" type="submit">Save</button>
-      </form>
-      <br><br> {% endcomment %}
-
-      {{ form.errors }}
-
-      <form method="POST", action="{% url 'todo:new' %}", style="max-width: 660px;">
-        {% csrf_token %}
-        <div class="field">
-          <label class="label">{{ form.title.label }}</label>
-          <div class="control">
-            <input name="{{ form.title.name }}" class="input" type="text" placeholder="Text input">
-          </div>
-        </div>
-
-        <div class="field">
-          <label class="label">{{ form.desc.label }}</label>
-          <div class="control">
-            <textarea name="{{ form.desc.name }}" class="textarea" placeholder="Textarea"></textarea>
-          </div>
-        </div>
-
-        <div class="field is-grouped">
-          <div class="control">
-            <button type="submit" class="button is-link">Submit</button>
-          </div>
-          <div class="control">
-            <a href="{% url 'todo:list' %}" class='button is-link is-light'>Back to list</a>
-          </div>
-        </div>
-      </form>
     </div>
-  </section>
-</body>
+  </form>
+</section>
 
+  </body>
 </html>

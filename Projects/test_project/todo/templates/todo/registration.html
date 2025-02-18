@@ -1,50 +1,53 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Hello Bulma!</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
-    </head>
-    <body>
-        <section class="container">
-            <h1>Register template!</h1>
 
-            <form method="post" action="/todo/list/" style="max-width: 640px;" enctype="multipart/form-data">
-                {% csrf_token %}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hello Bulma!</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+</head>
 
-                <div class="field">
-                    <label class="label">New Login</label>
-                    <div class="control">
-                      <input name="login" value="" class="login" type="text" placeholder="Your new login">
-                    </div>
-                    {% if form.username.title %}
-                    <p class="help is-danger">{{ form.username.title }}</p>
-                    {% endif %}
-                  </div>
+<body>
+  <section class="container">
+    <h1>Register template!</h1>
 
-                  <div class="field">
-                    <label class="label">New Password</label>
-                    <div class="control">
-                      <input name="password" value="" class="password" type="password" placeholder="Your new password">
-                    </div>
-                    {% if form.password.title %}
-                    <p class="help is-danger">{{ form.password.title }}</p>
-                    {% endif %}
-                  </div>
+    <form method="post" action="/todo/register/" style="max-width: 640px;" enctype="multipart/form-data">
+      {% csrf_token %}
 
-                  <div class="field">
-                    <label class="label">New Email</label>
-                    <div class="control">
-                      <input name="email" value="" class="email" type="email" placeholder="Your new email">
-                    </div>
-                    {% if form.email.title %}
-                    <p class="help is-danger">{{ form.email.title }}</p>
-                    {% endif %}
-                  </div>
+      <div class="field">
+        <label class="label">New Login</label>
+        <div class="control">
+          <input name="login" value="" class="login" type="text" placeholder="Your new login">
+        </div>
+        {% if form.username.title %}
+        <p class="help is-danger">{{ form.username.title }}</p>
+        {% endif %}
+      </div>
 
-                <button class="button is-warning" type="submit">Register</button>
-            </form>
-        </section>
+      <div class="field">
+        <label class="label">New Password</label>
+        <div class="control">
+          <input name="password" value="" class="password" type="password" placeholder="Your new password">
+        </div>
+        {% if form.password.title %}
+        <p class="help is-danger">{{ form.password.title }}</p>
+        {% endif %}
+      </div>
+
+      <div class="field">
+        <label class="label">New Email</label>
+        <div class="control">
+          <input name="email" value="" class="email" type="email" placeholder="Your new email">
+        </div>
+        {% if form.email.title %}
+        <p class="help is-danger">{{ form.email.title }}</p>
+        {% endif %}
+      </div>
+
+      <button class="button is-warning" type="submit">Register</button>
+    </form>
+  </section>
 </body>
+
 </html>

@@ -1,18 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse
 from todo.models import Task, Register
 from django.forms import ModelForm
 from django import forms
 from django.contrib.auth.models import User
-
-class TaskForm(ModelForm):
-    class Meta:
-        model = Task
-        fields = ['title', 'desc']
-        widgets = {
-            'title': forms.TextInput(attrs={'class': 'input'}),
-            'desc': forms.Textarea(attrs={'class': 'textarea'}),
-        }
+from todo.forms import TaskForm
 
 class RegisterForm(ModelForm):
     class Meta:
@@ -39,17 +30,25 @@ def todo_list(request):
 def todo_detail(request, number):
     if request.user.is_authenticated:
         task = get_object_or_404(Task, id=number)
-        context = {'task': task,}
+
         if task.user == request.user:
-            return render(request, 'todo/detail.html', context)
-    else:
-        return redirect('/todo')
+            if request.method == 'POST':
+                form = TaskForm(request.POST, instance=task)
+                if form.is_valid():
+                    form.save()
+                    return redirect('/todo/list/')
+            else:
+                form = TaskForm(instance=task)
+            return render(request, 'todo/detail.html', {'task': task, 'form': form})
+    return redirect('/todo/')
 
 def todo_new(request):
     if request.method == 'POST':
         form = TaskForm(request.POST)
         if form.is_valid():
-            task = form.save()
+            task = form.save(commit=False)
+            task.user = request.user
+            task.save()
             print(task, task.id)
             return redirect('/todo/list')
         else:
@@ -59,26 +58,22 @@ def todo_new(request):
         form = TaskForm()
         return render(request, 'todo/new.html', {'form': form})
 
-# login = request.POST.get('login', '')
-# password = request.POST.get('password', '')
-# user = User.objects.create_user(username=login, password=password)
-# user.is_staff = True
-# user.save()
-
 def register(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
-            reg = form.save()
-            print(reg, '1111111111')
             return redirect('/todo/list')
         else:
             form = RegisterForm(request.POST)
-            print('2222222222')
-            return render(request, 'todo/registration.html', {'form': form})
+            login = request.POST.get('login', '')
+            password = request.POST.get('password', '')
+            email = request.POST.get('email', '')
+            user = User.objects.create_user(username=login, password=password, email=email)
+            user.is_staff = True
+            user.save()
+            return render(request, 'todo/list.html', {'form': form})
     else:
         form = RegisterForm()
-        print('3333333333')
         return render(request, 'todo/registration.html', {'form': form})
 
 # def register(request):
