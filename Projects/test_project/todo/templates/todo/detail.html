@@ -37,11 +37,9 @@
     <br>
     <form action="{% url 'todo:task_finish' number=task.id %}" method="POST">
         {% csrf_token %}
-        {% if task.is_finished %}
-        <button type="submit" class="button is-primary is-light">Un-finish</button>
-        {% else %}
-        <button type="submit" class="button is-primary">Finish</button>
-        {% endif %}
+        <button type="submit" class="button is-primary">
+            {% if task.is_finished %}Un-{% endif %}finish
+        </button>
     </form>
   </section>
 
