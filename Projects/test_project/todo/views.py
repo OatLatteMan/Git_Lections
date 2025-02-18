@@ -60,6 +60,9 @@ def todo_new(request):
     else:
         return redirect('/todo')
 
+def todo_task_delete(request):
+    pass
+
 def register(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)

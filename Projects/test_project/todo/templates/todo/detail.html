@@ -1,22 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
-</head>
-<body>
-
+  </head>
+  <body>
     {% include 'todo/includes/nav.html' %}
 
-    <section class='section'>
-        <div class="container">
-            <h1 class="title">Hi, {{ task.title }}</h1>
-            <p class="subtitle">{{ task.desc }}</p>
-            <p class="subtitle">{{ task.id }}</p>
-            <p class="subtitle">Last Updated: {{ task.update_dt }}</p>
-        </div>
-    </section>
+  <section class="section container" style="max-width: 640px;">
+    <h1 class="title">{{ task.title }}</h1>
+    <p class="subtitle is-size-6">
+      Last edit: <time datetime="{{ task.update_dt|date:'Y-m-d\TH:i' }}">{{ task.update_dt }}</time><br>
+      Finished at: <time datetime="{{ task.finish_dt|date:'Y-m-d\TH:i' }}">{{ task.finish_dt|default:'-' }}</time>
+    </p>
+    
+    
+    <form method="POST" action="{% url 'todo:detail' number=task.id %}">
+      {% csrf_token %}
+
+      {% load crispy_forms_tags %}
+      {{ form|crispy }}
+
+      <div class="buttons">
+          <button type="submit" class="button is-warning">Save</button>
+          <a href="{% url 'todo:list' %}" class="button is-warning is-light">Cancel</a>
+          <span style="flex-grow:1;"></span>
+          <a href="{% url 'todo:list' %}" class="button is-danger is-light">Delete</a>
+          {% if task.is_finished %}
+          <a href="#" class="button is-primary">Un-Finish</a>
+          {% else %}
+          <a href="#" class="button is-primary">Finish</a>
+          {% endif %}
+      </div>
+    </form>
+  </section>
+
   </body>
 </html>
