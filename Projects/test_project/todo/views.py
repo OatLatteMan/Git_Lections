@@ -80,12 +80,15 @@ def todo_task_delete(request, number):
 def todo_task_finish(request, number):
     if request.user.is_authenticated:
         task = get_object_or_404(Task, id=number, user=request.user)
-        if task.is_finished == False:
-            task.is_finished = True
-            task.save()
-        else:
-            task.is_finished = False
-            task.save()
+
+        task.is_finished = not task.is_finished
+
+        # if task.is_finished == False:
+        #     task.is_finished = True
+        # else:
+        #     task.is_finished = False
+
+        task.save()
         return redirect('/todo/list/')
 
     return redirect('/todo/')
