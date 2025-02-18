@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello Bulma!</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
-  </head>
-  <body>
-    <section class="hero is-info">
-      <div class="hero-body has-text-centered">
-        <p class="title">Awesome Todo App</p>
-        <p class="subtitle">Create &amp; manage your tasks</p>
-        <div class="buttons is-centered">
-          <a href="{% url 'login' %}" class="button is-warning">Log-in</a>
-          <a href="{% url 'todo:register' %}" class="button is-warning is-light">Register</a>
-        </div>
-      </div>
-    </section>
-  </body>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Hello Bulma!</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    </head>
+    <body>
+        {% include 'todo/includes/nav.html' %}
+
+        <section class="hero is-halfheight">
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                    <h1 class="title">Awesome Todo App</h1>
+                    <p class="subtitle">create &amp; manage your tasks</p>
+
+                    <div class="buttons are-medium is-centered">
+                        <a href="{% url 'login' %}" class="button is-warning">Login</a>
+                        <a href="{% url 'todo:register' %}" class="button is-warning is-light">Register</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
 </html>

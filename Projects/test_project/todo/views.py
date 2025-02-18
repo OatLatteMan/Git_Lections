@@ -43,20 +43,22 @@ def todo_detail(request, number):
     return redirect('/todo/')
 
 def todo_new(request):
-    if request.method == 'POST':
-        form = TaskForm(request.POST)
-        if form.is_valid():
-            task = form.save(commit=False)
-            task.user = request.user
-            task.save()
-            print(task, task.id)
-            return redirect('/todo/list')
-        else:
+    if request.user.is_authenticated:
+        if request.method == 'POST':
             form = TaskForm(request.POST)
-            return render(request, 'todo/new.html', {'form': form})
-    else:
-        form = TaskForm()
+
+            if form.is_valid():
+                task = form.save(commit=False)
+                task.user = request.user
+                task.save()
+                print(task, task.id)
+                return redirect('/todo/list/') # todo: opravit
+        else:
+            form = TaskForm()
+
         return render(request, 'todo/new.html', {'form': form})
+    else:
+        return redirect('/todo')
 
 def register(request):
     if request.method == 'POST':
@@ -68,7 +70,7 @@ def register(request):
             login = request.POST.get('login', '')
             password = request.POST.get('password', '')
             email = request.POST.get('email', '')
-            user = User.objects.create_user(username=login, password=password, email=email)
+            user = User.objects.create_superuser(username=login, password=password, email=email)
             user.is_staff = True
             user.save()
             return render(request, 'todo/list.html', {'form': form})

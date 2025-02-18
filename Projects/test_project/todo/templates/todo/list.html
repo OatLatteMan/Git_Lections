@@ -5,19 +5,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hello Bulma!</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <style>
+      input[type="checkbox"] {
+        width: 1.5em;
+        height: 1.5em;
+        cursor: pointer;
+    }
+
+    #list > li {
+      display: flex;
+      gap: .5em;
+      align-items: start;
+      background: var(--bulma-background);
+      border: .5em solid var(--bulma-scheme-main);
+      border-radius: 1em;
+
+    }
+
+    #list > li input {
+      flex-shrink: 0;
+    }
+
+    #list > li input, #list > li button {
+      margin-top: .45em;
+    }
+
+    #list > li div {
+      font-size: 1.15em;
+      flex-grow: 1;
+      flex-shrink: 1;
+    }
+    #list > li a:hover {
+      text-decoration: underline;
+    }
+    #list > li time {
+      font-size: .75em;
+    }
+    </style>
   </head>
   <body>
-
     {% include 'todo/includes/nav.html' %}
 
-    <div class='columns is-multiline'>
-      {% for task in tasks %}
-        <div class="column is-4">
-          <a style="display: block" class='button' href="{% url 'todo:detail' number=task.id %}">
-            {{ task.title }} ({{task.id}})
-          </a>
-        </div>
-      {% endfor %}
+  <section class="section">
+    <div class="container">
+      <h1 class="title">List of my Tasks</h1>
+      <p class="subtitle">There are currently 30 active and 20 finished tasks.</p>
+      <div class="buttons">
+        <a href="{{ request.path }}" class="button is-warning {% if 'active' in request.GET or 'finished' in request.GET %} is-light{% endif %}">All</a>
+        <a href="{{ request.path }}?active" class="button is-warning {% if 'active' not in request.GET %} is-light{% endif %}">Active</a>
+        <a href="{{ request.path }}?finished" class="button is-warning {% if 'finished' not in request.GET %} is-light{% endif %}">Finished</a>
+      </div>
+
+      {% if tasks %}
+      <ul class="columns is-multiline" id="list">
+        {% for task in tasks %}
+          <li class="column is-4">
+            <input type="checkbox" {% if task.is_finished %} checked {% endif %} title="Finish">
+            <div>
+              <a href="{% url 'todo:detail' number=task.id %}">{{ task.title }}</a>
+              <br>
+              {% if task.dead_line_dt %}
+              <time datetime="{{ task.dead_line_dt|date:'Y-m-d\TH:i' }}">
+                {% if not task.is_finished and task.dead_line_dt|date:"Y-m-d" <= dt_now|date:"Y-m-d" %}❗{% endif %}
+                {{ task.dead_line_dt }}
+              </time>
+              {% endif %}
+              
+            </div>
+            <button class="delete" title="Remove"></button>
+          </li>
+        {% endfor %}
+        </ul>
+      {% else %}
+      <p class="is-size-5">No task to show here.</p>
+      {% endif %}
+      
     </div>
+  </section>
   </body>
 </html>
