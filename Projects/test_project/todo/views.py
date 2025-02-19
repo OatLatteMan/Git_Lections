@@ -111,15 +111,3 @@ def register(request):
         form = RegisterForm()
         return render(request, 'todo/registration.html', {'form': form})
 
-# def register(request):
-#     username = request.POST.get('username', '')
-#     password = request.POST.get('password', '')
-#     print(request.POST, "<<<<<<<<<<<<<")
-#     # email = request.POST.get('email97', '')
-#     user = User.objects.create_user(username=username, password=password)
-#     # user = User.objects.create_user('18min', None, '1234')
-#     user.is_staff = True
-#     user.save()
-
-#     return render(request, 'todo/registration.html')
-
