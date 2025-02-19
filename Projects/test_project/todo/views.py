@@ -83,10 +83,14 @@ def todo_task_finish(request, number):
 
         task.is_finished = not task.is_finished
 
-        # if task.is_finished == False:
-        #     task.is_finished = True
-        # else:
-        #     task.is_finished = False
+        """
+        Another variant
+
+        if task.is_finished == False:
+            task.is_finished = True
+        else:
+            task.is_finished = False
+        """
 
         task.save()
         return redirect('/todo/list/')
