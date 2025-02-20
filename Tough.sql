@@ -47,7 +47,12 @@ insert into zamestnanec (name) values ('Adam Hlozek')
 update zamestnanec set id = 4 where id = 5
 select * from zamestnanec
 
+UPDATE zamestnanec set age = length(name)
+select * from zamestnanec
 
+update zamestnanec set username = id
+select * from zamestnanec
 
-
+update zamestnanec set Username = substr(name, 0, 3) || cast (id as varchar(32))
+select * from zamestnanec
 
