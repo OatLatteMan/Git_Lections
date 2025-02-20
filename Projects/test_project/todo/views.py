@@ -101,9 +101,7 @@ def register(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
-            return redirect('/todo/list')
-        else:
-            form = RegisterForm(request.POST)
+            # form = RegisterForm(request.POST)
             login = request.POST.get('login', '')
             password = request.POST.get('password', '')
             email = request.POST.get('email', '')
@@ -111,6 +109,8 @@ def register(request):
             user.is_staff = True
             user.save()
             return render(request, 'todo/list.html', {'form': form})
+        else:
+            return render(request, 'todo/registration.html', {'form': form})
     else:
         form = RegisterForm()
         return render(request, 'todo/registration.html', {'form': form})
