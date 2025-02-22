@@ -1,7 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+
 """
+Tabs:
+    - Home (about)
+    - Films
+    - Serials
+    - Actors
+
 Films:
     - Inception
     - Interstellar
@@ -13,7 +20,7 @@ Serials:
     - The Witcher
 """
 
-# function index()
+
 def index(request, number):
     context = {
         'number': number,
