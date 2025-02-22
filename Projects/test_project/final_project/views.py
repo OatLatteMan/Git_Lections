@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+import random
 
 
 """
@@ -21,10 +22,8 @@ Serials:
 """
 
 
-def home(request, number):
-    context = {
-        'number': number,
-    }
+def home(request):
+    number = random.randint(1, 100)
 
-    return render(request, 'final_project/tpcfuj.html', context)
+    return render(request, 'final_project/tpcfuj.html', {'number': number})
 
