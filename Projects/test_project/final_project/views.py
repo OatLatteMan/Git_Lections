@@ -6,6 +6,11 @@ Films:
     - Inception
     - Interstellar
     - 50 shades of gray
+
+Serials:
+    - Friends
+    - Gotham
+    - The Witcher
 """
 
 # function index()
