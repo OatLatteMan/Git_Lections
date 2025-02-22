@@ -11,7 +11,6 @@
 
 <section class="section container" style="max-width: 640px;">
   <h1 class="title">Create a new Item</h1>
-  
   <form method="POST" action="{% url 'todo:new' %}">
     {% csrf_token %}
 
