@@ -21,7 +21,7 @@ Serials:
 """
 
 
-def index(request, number):
+def home(request, number):
     context = {
         'number': number,
     }
