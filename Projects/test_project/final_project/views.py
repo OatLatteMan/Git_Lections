@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
+from django.contrib.auth.models import User
+
 import random
 
 
@@ -25,5 +27,14 @@ Serials:
 def home(request):
     number = random.randint(1, 100)
 
-    return render(request, 'final_project/tpcfuj.html', {'number': number})
+    return render(request, 'final_project/home.html', {'number': number})
+
+def films(request):
+    pass
+
+def serials(request):
+    pass
+
+def actors(request):
+    pass
 
