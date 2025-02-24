@@ -15,8 +15,7 @@
       Last edit: <time datetime="{{ task.update_dt|date:'Y-m-d\TH:i' }}">{{ task.update_dt }}</time><br>
       Finished at: <time datetime="{{ task.finish_dt|date:'Y-m-d\TH:i' }}">{{ task.finish_dt|default:'-' }}</time>
     </p>
-    
-    
+
     <form method="POST" action="{% url 'todo:detail' number=task.id %}">
       {% csrf_token %}
 

@@ -30,7 +30,7 @@ def home(request):
     return render(request, 'final_project/home.html', {'number': number})
 
 def films(request):
-    pass
+    return render(request, 'final_project/films.html')
 
 def serials(request):
     pass
