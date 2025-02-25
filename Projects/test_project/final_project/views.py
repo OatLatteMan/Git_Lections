@@ -33,8 +33,8 @@ def films(request):
     return render(request, 'final_project/films.html')
 
 def serials(request):
-    pass
+    return render(request, 'final_project/serials.html')
 
 def actors(request):
-    pass
+    return render(request, 'final_project/actors.html')
 
