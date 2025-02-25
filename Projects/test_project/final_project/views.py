@@ -2,8 +2,6 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 
-import random
-
 
 """
 Tabs:
@@ -25,9 +23,7 @@ Serials:
 
 
 def home(request):
-    number = random.randint(1, 100)
-
-    return render(request, 'final_project/home.html', {'number': number})
+    return render(request, 'final_project/home.html')
 
 def films(request):
     return render(request, 'final_project/films.html')
