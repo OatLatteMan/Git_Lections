@@ -25,11 +25,8 @@ Serials:
 def home(request):
     return render(request, 'final_project/home.html')
 
-def films(request):
-    return render(request, 'final_project/films.html')
-
-def serials(request):
-    return render(request, 'final_project/serials.html')
+def films_serials(request):
+    return render(request, 'final_project/films_serials.html')
 
 def actors(request):
     return render(request, 'final_project/actors.html')
