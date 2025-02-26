@@ -21,6 +21,14 @@ Serials:
     - The Witcher
 """
 
+"""
+Questions to ask:
+    - Better to make united page for films and serials, or two separated?
+    - If users are creating reviews, how do we tell django, that a certain
+      user is logged in?
+    - 
+"""
+
 
 def home(request):
     return render(request, 'final_project/home.html')
