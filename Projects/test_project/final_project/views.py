@@ -23,10 +23,10 @@ Serials:
 
 """
 Questions to ask:
-    - Better to make united page for films and serials, or two separated?
+    - Better to make united page for films and serials, or two separated? - United
     - If users are creating reviews, how do we tell django, that a certain
-      user is logged in?
-    - 
+      user is logged in? - Make reviews from different web-browsers or inkognito tabs
+    - How to upload on server if I need to run "runserver" every time? - We'll do it together and make that work non-stop
 """
 
 
