@@ -6,8 +6,7 @@ from final_project.models import ItemType, Genre, Item, Review
 """
 Tabs:
     - Home (about)
-    - Films
-    - Serials
+    - Films and serials (detail)
     - Actors
 
 Films:
@@ -38,4 +37,7 @@ def films_serials(request):
 
 def actors(request):
     return render(request, 'final_project/actors.html')
+
+def detail(request, number):
+    return render(request, 'final_project/detail.html', {'number': number})
 
