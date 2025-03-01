@@ -14,6 +14,9 @@ urlpatterns = [
     path('actors/', views.actors, name='actors'),
 
     # http://127.0.0.1:[PORT]/final_project/detail
-    path('<int:number>/', views.detail, name='detail',)
+    path('<int:number>/', views.detail, name='detail'),
+
+    # http://127.0.0.1:[PORT]/final_project/new
+    path('new', views.final_project_new, name='new'),
 ]
 

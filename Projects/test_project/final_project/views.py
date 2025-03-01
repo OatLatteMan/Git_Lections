@@ -41,3 +41,6 @@ def actors(request):
 def detail(request, number):
     return render(request, 'final_project/detail.html', {'number': number})
 
+def final_project_new(request):
+
+    return render(request, 'final_project/new.html')
