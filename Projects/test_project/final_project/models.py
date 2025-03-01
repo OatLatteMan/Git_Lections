@@ -19,6 +19,9 @@ class Item(models.Model):
     type = models.IntegerField(choices=ItemType)
     genre = models.IntegerField(choices=Genre)
 
+    def __str__(self):
+        return self.name
+
 class Review(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
