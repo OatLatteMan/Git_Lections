@@ -8,8 +8,20 @@
 </head>
 <body>
     {% include 'final_project/includes/nav.html' %}
-    <main class="container">
-        <h1>Details of selected film or serial: "..."</h1>
-    </main>
+    <section class="section container" style="max-width: 640px;">
+        <h1 class="title">Create a new Film or Serial</h1>
+        <form method="POST" action="{% url 'final_project:new' %}">
+          {% csrf_token %}
+
+          {% load crispy_forms_tags %}
+          {{ form|crispy }}
+
+          <div class="buttons">
+              <button type="submit" class="button is-warning">Save</button>
+              <a href="{% url 'todo:list' %}" class="button is-warning is-light">Cancel</a>
+
+          </div>
+        </form>
+      </section>
 </body>
 </html>
