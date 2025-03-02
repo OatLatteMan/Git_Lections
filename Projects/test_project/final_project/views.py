@@ -23,10 +23,8 @@ Serials:
 
 """
 Questions to ask:
-    - Better to make united page for films and serials, or two separated? - United
-    - If users are creating reviews, how do we tell django, that a certain
-      user is logged in? - Make reviews from different web-browsers or inkognito tabs
-    - How to upload on server if I need to run "runserver" every time? - We'll do it together and make that work non-stop
+    - Why charfields from models are not showing up? Despite seeming I've
+        set everything up correctly
 """
 
 
@@ -49,7 +47,7 @@ def final_project_new(request):
         if form.is_valid():
             item = form.save(commit=False)
             item.save()
-            return redirect('/final_project/films_serials')
+            return redirect('/final_project/films')
     else:
         form = ItemForm()
 

@@ -8,7 +8,7 @@ urlpatterns = [
     path('', views.home, name='home'),
 
     # http://127.0.0.1:[PORT]/final_project/films
-    path('films/', views.films_serials, name='films_serials'),
+    path('films/', views.films_serials, name='films'),
 
     # http://127.0.0.1:[PORT]/final_project/actors
     path('actors/', views.actors, name='actors'),
