@@ -9,10 +9,10 @@ cursor = connection.cursor()
 search_text = input("Put a searching:")
 
 query = f"""
-        select * from todo_task where title like '{search_text}%'
+        select * from todo_task where title like '?%' and user_id = 1
         """
 
-cursor.execute(query)
+cursor.execute(query, [search_text])
 
 data = cursor.fetchall()
 

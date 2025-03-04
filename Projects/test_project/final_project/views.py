@@ -51,4 +51,4 @@ def final_project_new(request):
     else:
         form = ItemForm()
 
-    return render(request, 'final_project/new.html')
+    return render(request, 'final_project/new.html', {'form': form})
