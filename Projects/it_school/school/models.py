@@ -6,10 +6,12 @@ User = get_user_model()
 
 class Course(models.Model):
     name = models.CharField(max_length=100)
-    desc = models.CharField(max_length=1000)
+    desc = models.TextField(max_length=1000)
     image = models.ImageField(blank=True, null=True, upload_to='course/')
 
-    lector = models.ForeignKey(User, )
+    lector = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL, related_name='lector_courses')
+
+    students = models.ManyToManyField(User, blank=True)
 
     def __str__(self):
-        return self.name
+        return self.name, self.desc
