@@ -1,0 +1,23 @@
+{% extends "school/_base.html" %}
+{% block school_title %}Courses{% endblock %}
+{% block school_desc %}Courses of school app for it_school in Prague{% endblock  %}
+
+{% block school_base %}
+    <h1>Courses</h1>
+
+    <ul>
+        {% for course in courses %}
+            <li>
+                <a href="#">
+                    {% if course.image %}
+                    <img src="{{ course.image.url }}" alt="">
+                    {% else %}
+                    <img src="https://picsum.photos/200?{{ course.id }}" alt="">
+                    {% endif %}
+                    <h2>{{ course.name }}</h2>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock  %}
+
