@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import reverse
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -15,3 +16,7 @@ class Course(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse("school:course_detail", kwargs={"pk": self.pk})
+
