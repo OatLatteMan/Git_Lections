@@ -12,6 +12,14 @@
   </head>
   <body>
     <main class="container">
+      {% block navigation %}
+      <a class="navbar-item" href="{% url 'school:home' %}">
+        <button class="button is-info is-dark">Home</button></a>
+      <a class="navbar-item" href="{% url 'school:courses' %}">
+        <button class="button is-info is-dark">Courses</button></a>
+      <a class="navbar-item" href="{% url 'school:students' %}">
+        <button class="button is-info is-dark">Students</button></a>
+      {% endblock  %}
       {% block school_base %}{% endblock  %}
     </main>
   </body>
