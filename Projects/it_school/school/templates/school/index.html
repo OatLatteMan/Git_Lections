@@ -1,8 +1,16 @@
 {% extends "school/_base.html" %}
 {% block school_title %}School App{% endblock %}
 {% block school_desc %}This is school app for it_school in Prague{% endblock  %}
-{% block navigation %}{% endblock  %}
+{% include 'school/includes/nav.html' %}
 
+{% block nav %}
+  <a href="{% url 'school:index' %}">
+    <button>Home</button></a>
+  <a href="{% url 'school:courses' %}">
+    <button>Courses</button></a>
+  <a href="{% url 'school:students' %}">
+    <button>Students</button></a>
+{% endblock  %}
 {% block school_base %}
     <h1>Index</h1>
 {% endblock  %}
