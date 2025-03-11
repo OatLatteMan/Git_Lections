@@ -23,7 +23,8 @@ class CourseDetail(generic.DetailView):
 
 class CourseList(generic.ListView):
     model = models.Course
-    paginate_by = 6
+    queryset = models.Course.objects.select_related('lector')
+    paginate_by = 10
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

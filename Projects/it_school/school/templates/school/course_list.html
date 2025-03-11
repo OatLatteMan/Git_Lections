@@ -22,7 +22,7 @@
                     {% else %}
                     <img src="https://picsum.photos/200?{{ course.id }}" alt="" loading='lazy'>
                     {% endif %}
-                    <h2>{{ course.name }}</h2>
+                    <h2>{{ course.name }} - {{ course.lector.username }}</h2>
                 </a>
             </li>
         {% endfor %}
