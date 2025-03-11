@@ -13,6 +13,13 @@
   </head>
   <body>
     <main class="container">
+      <nav>
+        <ul>
+          <li><a href="{% url 'school:index' %}">Home</a></li>
+          <li><a href="{% url 'school:courses' %}">Courses</a></li>
+          <li><a href="{% url 'school:students' %}">Students</a></li>
+        </ul>
+      </nav>
       {% block nav %}{% endblock  %}
       {% block school_base %}{% endblock  %}
     </main>

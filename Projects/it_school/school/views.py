@@ -11,7 +11,7 @@ def students(request):
 
 def courses(request):
     courses = models.Course.objects.all()
-    return render(request, 'school/courses.html', {'courses': courses})
+    return render(request, 'school/course_list.html', {'courses': courses})
 
 def course_detail(request, pk):
     course = get_object_or_404(models.Course, pk=pk)
@@ -20,4 +20,8 @@ def course_detail(request, pk):
 
 class CourseDetail(generic.DetailView):
     model = models.Course
+
+class CourseList(generic.ListView):
+    model = models.Course
+    paginate_by = 2
 

@@ -1,14 +1,14 @@
 {% extends "school/_base.html" %}
 {% block school_title %}Stundents{% endblock %}
 {% block school_desc %}Students of school app for it_school in Prague{% endblock  %}
-{% block nav %}
+{% comment %} {% block nav %}
   <a href="{% url 'school:index' %}">
     <button>Home</button></a>
   <a href="{% url 'school:courses' %}">
     <button>Courses</button></a>
   <a href="{% url 'school:students' %}">
     <button>Students</button></a>
-{% endblock  %}
+{% endblock  %} {% endcomment %}
 
 
 {% block school_base %}

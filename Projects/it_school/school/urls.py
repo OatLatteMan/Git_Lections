@@ -8,7 +8,13 @@ urlpatterns = [
     path('index/', views.index, name='index'),
 
     # http://127.0.0.1:[PORT]/school/courses
-    path('courses/', views.courses, name='courses'),
+    # path('courses/', views.courses, name='courses'),
+
+    # http://127.0.0.1:[PORT]/school/courses
+    path('courses/', views.CourseList.as_view(), name='courses'),
+
+    # http://127.0.0.1:[PORT]/school/courses_details
+    # path('courses/<int:pk>', views.course_detail, name='course_detail'),
 
     # http://127.0.0.1:[PORT]/school/courses_details
     path('courses/<int:pk>', views.CourseDetail.as_view(), name='course_detail'),

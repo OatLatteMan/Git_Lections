@@ -1,20 +1,20 @@
 {% extends "school/_base.html" %}
 {% block school_title %}Courses{% endblock %}
 {% block school_desc %}Courses of school app for it_school in Prague{% endblock  %}
-{% block nav %}
+{% comment %} {% block nav %}
   <a href="{% url 'school:index' %}">
     <button>Home</button></a>
   <a href="{% url 'school:courses' %}">
     <button>Courses</button></a>
   <a href="{% url 'school:students' %}">
     <button>Students</button></a>
-{% endblock  %}
+{% endblock  %} {% endcomment %}
 
 {% block school_base %}
     <h1>Courses</h1>
 
-    <ul>
-        {% for course in courses %}
+    <ul class="list">
+        {% for course in object_list %}
             <li>
                 <a href="{{ course.get_absolute_url }}">
                     {% if course.image %}
@@ -27,5 +27,14 @@
             </li>
         {% endfor %}
     </ul>
+    {% if is_paginated %}
+      <nav>
+        <ul>
+          {% for number in paginator.get_elided_page_range %}
+            <li><a href="{{ request. }}">{{ number }}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
+    {% endif %}
 {% endblock  %}
 
