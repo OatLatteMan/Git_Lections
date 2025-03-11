@@ -31,7 +31,7 @@
       <nav>
         <ul>
           {% for number in paginator.get_elided_page_range %}
-            <li><a href="{{ request. }}">{{ number }}</a></li>
+            <li><a href="{{ request.path }}">{{ number }}</a></li>
           {% endfor %}
         </ul>
       </nav>
