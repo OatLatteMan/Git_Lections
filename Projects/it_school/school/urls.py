@@ -11,7 +11,7 @@ urlpatterns = [
     path('courses/', views.courses, name='courses'),
 
     # http://127.0.0.1:[PORT]/school/courses_details
-    path('courses/<int:pk>', views.course_details, name='course_details'),
+    path('courses/<int:pk>', views.CourseDetail.as_view(), name='course_detail'),
 
     # http://127.0.0.1:[PORT]/school/students
     path('students/', views.students, name='students'),
