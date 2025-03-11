@@ -30,8 +30,14 @@
     {% if is_paginated %}
       <nav>
         <ul>
-          {% for number in paginator.get_elided_page_range %}
-            <li><a href="{{ request.path }}">{{ number }}</a></li>
+          {% for number in paginator_range %}
+            <li>
+              {% if number != paginator.ELLIPSIS %}
+              <a href="{{ request.path }}?page={{ number }}">{{ number }}</a>
+              {% else %}
+              {{ number }}
+              {% endif %}
+            </li>
           {% endfor %}
         </ul>
       </nav>

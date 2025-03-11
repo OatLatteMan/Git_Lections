@@ -23,5 +23,16 @@ class CourseDetail(generic.DetailView):
 
 class CourseList(generic.ListView):
     model = models.Course
-    paginate_by = 2
+    paginate_by = 6
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        paginator = context['paginator']
+        page_obj = context['page_obj']
+        context['paginator_range'] = paginator.get_elided_page_range(
+            page_obj.number,
+            on_ends=1,
+            on_each_side=1
+        )
+        return context
 
