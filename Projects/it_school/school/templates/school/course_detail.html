@@ -1,3 +1,8 @@
 {% extends "school/_base.html" %}
-{% block school_title %}Courses{% endblock %}
-{% block school_desc %}Courses of school app for it_school in Prague{% endblock  %}
+{% block school_title %}{{ course.name }}{% endblock %}
+{% block school_desc %}{% endblock  %}
+
+{% block school_base %}
+    <h1>This is {{ course.name }} course</h1>
+{% endblock  %}
+
