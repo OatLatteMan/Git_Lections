@@ -15,5 +15,5 @@ def courses(request):
 def course_details(request, pk):
     course = get_object_or_404(models.Course, pk=pk)
 
-    return render(request, 'school/course_detail.html', {'course': course})
+    return render(request, 'school/course_details.html', {'course': course})
 
