@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse, get_object_or_404
 from school import models
-from django.views import generic
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 
 
 def index(request):
@@ -18,10 +19,10 @@ def course_detail(request, pk):
 
     return render(request, 'school/course_detail.html', {'course': course})
 
-class CourseDetail(generic.DetailView):
+class CourseDetail(DetailView):
     model = models.Course
 
-class CourseList(generic.ListView):
+class CourseList(ListView):
     model = models.Course
     queryset = models.Course.objects.select_related('lector')
     paginate_by = 10
