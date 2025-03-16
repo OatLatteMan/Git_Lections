@@ -14,10 +14,10 @@ def courses(request):
     courses = models.Course.objects.all()
     return render(request, 'school/course_list.html', {'courses': courses})
 
-def course_detail(request, pk):
-    course = get_object_or_404(models.Course, pk=pk)
+# def course_detail(request, pk):
+#     course = get_object_or_404(models.Course, pk=pk)
 
-    return render(request, 'school/course_detail.html', {'course': course})
+#     return render(request, 'school/course_detail.html', {'course': course})
 
 class CourseDetail(DetailView):
     model = models.Course

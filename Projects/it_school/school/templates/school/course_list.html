@@ -15,6 +15,7 @@
                     {% endif %}
                     <h2>{{ course.name }} - {{ course.lector.username }}</h2>
                 </a>
+                <h3>{{ course.get_absolute_url }}</h3>
             </li>
         {% endfor %}
     </ul>
