@@ -20,7 +20,7 @@ def courses(request):
 #     return render(request, 'school/course_detail.html', {'course': course})
 
 class CourseDetail(DetailView):
-    model = models.Course
+    model = models.Course 
 
 class CourseList(ListView):
     model = models.Course
