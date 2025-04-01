@@ -27,7 +27,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'myapp',
     'todo',
-    'final_project',
     'crispy_forms',
     'crispy_bulma',
 ]

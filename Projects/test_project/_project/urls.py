@@ -2,7 +2,6 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('final_project/', include('final_project.urls', namespace='final_project')),
 
     path('myapp/', include('myapp.urls', namespace='myapp')),
 
