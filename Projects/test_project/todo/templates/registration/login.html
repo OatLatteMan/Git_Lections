@@ -22,14 +22,14 @@
 
                         <form method="post" action="{% url 'login' %}">
                             {% csrf_token %}
-            
+
                             {{ form|crispy }}
-                            
+
                             <div class="buttons">
                                 <button class="button is-warning" type="submit">Login</button>
                                 <a href="#" class="button is-warning is-light" type="submit">Register</a>
                             </div>
-                            
+
                         </form>
                     </div>
                 </div>
