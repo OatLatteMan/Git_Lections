@@ -22,6 +22,11 @@ def courses(request):
 class CourseDetail(DetailView):
     model = models.Course 
 
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     print(context)
+    #     return context
+
 class CourseList(ListView):
     model = models.Course
     queryset = models.Course.objects.select_related('lector')
@@ -29,6 +34,7 @@ class CourseList(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        print(context['view'])
         paginator = context['paginator']
         page_obj = context['page_obj']
         context['paginator_range'] = paginator.get_elided_page_range(
